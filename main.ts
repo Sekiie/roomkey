@@ -7,7 +7,7 @@ let c0=1+7*k,r0=s?H+1:H-7,a=r0*w+c0,z=a+6*w+5;
 const f=x=>x>=a&&x<=z&&(x-c0)%w<=5;
 let b=B.filter(f);if(!b.length)continue;
 let g=G.filter(f),R=B.filter(x=>!b.includes(x)),dc=-1;
-for(let x=c0;x<=c0+5;x++)if(j[(s?H+1:H-1)*w+x]!="#")dc=x;
+for(d=c0;d<=c0+5;d++)if(j[(s?H+1:H-1)*w+d]!="#")dc=d;
 let D={[0]:[p,b,""]},u=0,y=1,V2={},fd=0;
 while(u<y&&!fd){
 let q=D[u++],[pp,bb,mm]=q,kk=pp+","+bb;
