@@ -6,8 +6,8 @@ for(let i=0;i<j.length;i++){let h=j[i];h!="#"&&(".*+".includes(h)&&G.push(i),"$*
 B.sort(c);
 let H=(p/w)|0,m="",pd=-1;
 for(let s=0;s<2;s++)for(let k=0;k*7+1<w;k++){
-let c0=1+7*k,r0=s?H+1:H-7,r1=s?H+7:H-1;
-const f=x=>{let y=(x/w)|0;return y>=r0&&y<=r1&&x%w>=c0&&x%w<=c0+5};
+let c0=1+7*k,r0=s?H+1:H-7,a=r0*w+c0,z=(s?H+7:H-1)*w+c0+5;
+const f=x=>x>=a&&x<=z&&(x-c0)%w<=5;
 let b=B.filter(f);if(!b.length)continue;
 let g=G.filter(f),R=B.filter(x=>!b.includes(x)),dc=-1;
 for(let x=c0;x<=c0+5;x++)if(j[(s?H+1:H-1)*w+x]!="#")dc=x;
