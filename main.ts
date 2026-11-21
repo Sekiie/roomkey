@@ -33,6 +33,6 @@ pd=dc;
 return m;
 };
 F.readdirSync(I).map(id=>{
-let o;F.mkdirSync(o=O+"/"+id,{recursive:true});
-F.writeFileSync(o+"/solution.txt",S(F.readFileSync(I+"/"+id+"/level.txt")+""));
+F.mkdirSync(O+"/"+id,{recursive:true});
+F.writeFileSync(O+"/"+id+"/solution.txt",S(F.readFileSync(I+"/"+id+"/level.txt")+""));
 });
