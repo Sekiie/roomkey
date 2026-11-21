@@ -1,9 +1,7 @@
 import F from"node:fs";
 const{MAKEFUN_INPUT_DIR:I,MAKEFUN_OUTPUT_DIR:O}=process.env;
 const S=t=>{
-let r=t.trim().split("\n"),w=r[0].length,E=[-w,w,-1,1],G=[],B=[],p=-1,c=(a,b)=>a-b,j=r.join("");
-for(let i=0;i<j.length;i++){let h=j[i];h!="#"&&(".*+".includes(h)&&G.push(i),"$*".includes(h)&&B.push(i),"@+".includes(h)&&(p=i))}
-B.sort(c);
+let r=t.trim().split("\n"),w=r[0].length,E=[-w,w,-1,1],c=(a,b)=>a-b,j=r.join(""),G=[...j.matchAll(/[.*+]/g)].map(x=>x.index),B=[...j.matchAll(/[$*]/g)].map(x=>x.index),p=j.search(/[@+]/);
 let H=(p/w)|0,m="",pd=-1;
 for(let s=0;s<2;s++)for(let k=0;k*7+1<w;k++){
 let c0=1+7*k,r0=s?H+1:H-7,a=r0*w+c0,z=(s?H+7:H-1)*w+c0+5;
@@ -18,7 +16,7 @@ let q=D[u++],[pp,bb,mm]=q,kk=pp+","+bb;
 if(V2[kk])continue;V2[kk]=1;
 if(bb==g+""){fd=q;break}
 for(let j2=0;j2<4;j2++){let d=E[j2],np=pp+d;
-if(j[np]=="#"||bb.includes(np)||R.includes(np)||((np/w|0)==H-1||(np/w|0)==H+1)&&np%w!=dc&&np%w!=pd)continue;
+if(j[np]=="#"||bb.includes(np)||R.includes(np)||Math.abs((np/w|0)-H)==1&&np%w!=dc&&np%w!=pd)continue;
 D[--u]=[np,bb,mm+"udlr"[j2]];
 }
 for(let b2=0;b2<bb.length;b2++){let b1=bb[b2];
