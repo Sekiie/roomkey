@@ -2,7 +2,7 @@ import F from"node:fs";
 const{MAKEFUN_INPUT_DIR:I,MAKEFUN_OUTPUT_DIR:O}=process.env;
 const S=t=>{
 let r=t.trim().split("\n"),w=r[0].length,E=[-w,w,-1,1],c=(a,b)=>a-b,j=r.join(""),M=e=>[...j.matchAll(e)].map(x=>x.index),G=M(/[.*+]/g),B=M(/[$*]/g),p=j.search(/[@+]/);
-let H=(p/w)|0,m="",pd=-1;
+let H=(p/w)|0,m="",pd=-1,j2,b2,d,np,v;
 for(let s=0;s<2;s++)for(let k=0;k*7+1<w;k++){
 let c0=1+7*k,r0=s?H+1:H-7,a=r0*w+c0,z=(s?H+7:H-1)*w+c0+5;
 const f=x=>x>=a&&x<=z&&(x-c0)%w<=5;
@@ -14,15 +14,15 @@ while(u<y&&!fd){
 let q=D[u++],[pp,bb,mm]=q,kk=pp+","+bb;
 if(V2[kk])continue;V2[kk]=1;
 if(bb==g+""){fd=q;break}
-for(let j2=0;j2<4;j2++){let d=E[j2],np=pp+d;
+for(j2=0;j2<4;j2++){d=E[j2],np=pp+d;
 if(j[np]=="#"||bb.includes(np)||R.includes(np)||Math.abs((np/w|0)-H)==1&&np%w!=dc&&np%w!=pd)continue;
 D[--u]=[np,bb,mm+"udlr"[j2]];
 }
-for(let b2=0;b2<bb.length;b2++){let b1=bb[b2];
-for(let j2=0;j2<4;j2++){let d=E[j2];
-if(pp!=b1-d)continue;let t=b1+d;
-if(j[t]=="#"||bb.includes(t)||R.includes(t)||(t/w|0)==H)continue;
-let nx=[...bb];nx[b2]=t;nx.sort(c);
+for(b2=0;b2<bb.length;b2++){let b1=bb[b2];
+for(j2=0;j2<4;j2++){d=E[j2];
+if(pp!=b1-d)continue;v=b1+d;
+if(j[v]=="#"||bb.includes(v)||R.includes(v)||(v/w|0)==H)continue;
+let nx=[...bb];nx[b2]=v;nx.sort(c);
 D[y++]=[b1,nx,mm+"UDLR"[j2]];
 }}
 }
