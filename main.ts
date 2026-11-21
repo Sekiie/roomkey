@@ -1,7 +1,7 @@
 import F from"node:fs";
 const{MAKEFUN_INPUT_DIR:I,MAKEFUN_OUTPUT_DIR:O}=process.env;
 const S=t=>{
-let r=t.trim().split("\n"),w=r[0].length,E=[-w,w,-1,1],c=(a,b)=>a-b,j=r.join(""),M=e=>[...j.matchAll(e)].map(x=>x.index),G=M(/[.*+]/g),B=M(/[$*]/g),p=j.search(/[@+]/);
+let w=t.indexOf("\n"),E=[-w,w,-1,1],c=(a,b)=>a-b,j=t.replace(/\n/g,""),M=e=>[...j.matchAll(e)].map(x=>x.index),G=M(/[.*+]/g),B=M(/[$*]/g),p=j.search(/[@+]/);
 let H=(p/w)|0,m="",pd=-1,j2,b2,d,np,v;
 for(let s=0;s<2;s++)for(let k=0;k*7+1<w;k++){
 let c0=1+7*k,r0=s?H+1:H-7,a=r0*w+c0,z=(s?H+7:H-1)*w+c0+5;
