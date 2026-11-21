@@ -5,13 +5,13 @@ let w=t.search("\n"),E=[-w,w,-1,1],c=(a,b)=>a-b,j=t.replace(/\n/g,""),M=e=>[...j
 for(let s=0;s<2;s++)for(let k=0;k*7+1<w;k++){
 let c0=1+7*k,a=(s?H+1:H-7)*w+c0,f=x=>x>=a&&x-a<=6*w+5&&(x-c0)%w<=5;
 if(!(b=B.filter(f).sort(c)).length)continue;
-let g=G.filter(f),R=B.filter(x=>!b.includes(x)),dc=-1;
+let g=G.filter(f)+"",R=B.filter(x=>!b.includes(x)),dc=-1;
 for(d=c0;d<c0+6;d++)if(j[(s?H+1:H-1)*w+d]!="#")dc=d;
 let D=[[p,b,""]],u=0,y=1,V2={};
 while(u<y){
 q=D[u++],[pp,bb,mm]=q,kk=pp+","+bb;
 if(V2[kk])continue;V2[kk]=1;
-if(bb==g+"")break;
+if(bb==g)break;
 for(j2=4;j2--;){d=E[j2],np=pp+d;
 if(j[np]=="#")continue;
 if(bb.includes(np)){
@@ -24,7 +24,7 @@ if(R.includes(np)||Math.abs((np/w|0)-H)==1&&np%w!=dc&&np%w!=pd)continue;
 D[--u]=[np,bb,mm+"udlr"[j2]];
 }}
 }
-if(bb!=g+"")return"";
+if(bb!=g)return"";
 m+=mm;p=pp;
 b.map((x,i)=>B[B.indexOf(x)]=bb[i]);
 pd=dc;
