@@ -3,8 +3,7 @@ const{MAKEFUN_INPUT_DIR:I,MAKEFUN_OUTPUT_DIR:O}=process.env;
 const S=t=>{
 let w=t.search("\n"),E=[-w,w,-1,1],c=(a,b)=>a-b,j=t.replace(/\n/g,""),M=e=>[...j.matchAll(e)].map(x=>x.index),G=M(/[.*+]/g),B=M(/[$*]/g),p=M(/[@+]/g)[0],H=p/w|0,m="",pd=-1,j2,d,np,v,q,pp,bb,mm,kk,b;
 for(let s=0;s<2;s++)for(let k=0;k*7+1<w;k++){
-let c0=1+7*k,a=(s?H+1:H-7)*w+c0;
-const f=x=>x>=a&&x-a<=6*w+5&&(x-c0)%w<=5;
+let c0=1+7*k,a=(s?H+1:H-7)*w+c0,f=x=>x>=a&&x-a<=6*w+5&&(x-c0)%w<=5;
 if(!(b=B.filter(f).sort(c)).length)continue;
 let g=G.filter(f),R=B.filter(x=>!b.includes(x)),dc=-1;
 for(d=c0;d<c0+6;d++)if(j[(s?H+1:H-1)*w+d]!="#")dc=d;
