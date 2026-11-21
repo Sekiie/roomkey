@@ -8,10 +8,9 @@ let c0=1+7*k,a=(H-7+8*s)*w+c0,f=x=>x>=a&&x-a<=6*w+5&&(x-c0)%w<6,b=B.filter(f).so
 if(!b[0])continue;
 d=c0;while(j[(H-1+2*s)*w+d]=="#")d++;dc=d;
 let D=[[p,b,""]],u=0,y=1,V2={};
-while(u<y){
+while(u<y&&bb!=g){
 [pp,bb,mm]=D[u++];
 if(V2[kk=pp+","+bb])continue;V2[kk]=1;
-if(bb==g)break;
 for(j2=4;j2--;){d=E[j2],np=pp+d;
 if(j[np]=="#")continue;
 if(bb.includes(np)){
