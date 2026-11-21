@@ -8,12 +8,12 @@ const f=x=>x>=a&&x<=z&&(x-c0)%w<=5;
 let b=B.filter(f).sort(c);if(!b.length)continue;
 let g=G.filter(f),R=B.filter(x=>!b.includes(x)),dc=-1;
 for(d=c0;d<=c0+5;d++)if(j[(s?H+1:H-1)*w+d]!="#")dc=d;
-let D={[0]:[p,b,""]},u=0,y=1,V2={},fd=0;
+let D=[[p,b,""]],u=0,y=1,V2={},fd=0;
 while(u<y&&!fd){
 let q=D[u++],[pp,bb,mm]=q,kk=pp+","+bb;
 if(V2[kk])continue;V2[kk]=1;
 if(bb==g+""){fd=q;break}
-for(j2=0;j2<4;j2++){d=E[j2],np=pp+d;
+for(j2=4;j2--;){d=E[j2],np=pp+d;
 if(j[np]=="#")continue;
 if(bb.includes(np)){
 v=np+d;
