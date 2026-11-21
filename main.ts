@@ -1,47 +1,38 @@
 import F from"node:fs";
 const{MAKEFUN_INPUT_DIR:I,MAKEFUN_OUTPUT_DIR:O}=process.env;
-let Y;
 const S=t=>{
-let r=t.trim().split("\n"),w=r[0].length,n=w*r.length,E=[-w,w,-1,1],A=Array(n).fill(1),G=[],B=[],p=-1,c=(a,b)=>a-b,j=r.join("");
-for(let i=0;i<n;i++){let h=j[i];h!="#"&&(A[i]=0,".*+".includes(h)&&G.push(i),"$*".includes(h)&&B.push(i),"@+".includes(h)&&(p=i))}
+let r=t.trim().split("\n"),w=r[0].length,E=[-w,w,-1,1],G=[],B=[],p=-1,c=(a,b)=>a-b,j=r.join("");
+for(let i=0;i<j.length;i++){let h=j[i];h!="#"&&(".*+".includes(h)&&G.push(i),"$*".includes(h)&&B.push(i),"@+".includes(h)&&(p=i))}
 B.sort(c);
-let H=(p/w)|0,o=[],m="",Z=A.map((a,i)=>a|(i/w|0)==H);
-const V=(f,b)=>{let v=Array(n).fill(-1),q=[f];v[f]=f;Y=f;for(let k=0;k<q.length;k++)for(let d of E){let x=q[k]+d;if(b[x]|o[x]|v[x]+1)continue;v[x]=q[k];if(x<Y)Y=x;q.push(x)}return v};
-const W=(f,t,b)=>{let v=V(f,b),s="";if(v[t]<0)return null;for(let x=t;x!=f;x=v[x])s="udlr"[E.indexOf(x-v[x])]+s;return s};
-const U=(a,v)=>a.map(x=>o[x]=v);
-for(;;){
-let bi=B.find(x=>!G.includes(x));if(bi==null)break;
-let v=V(bi,Z),b=B.filter(x=>~v[x]),g=G.filter(x=>~v[x]);
-let e=-1,k=v.map(x=>x<0);
-for(let x=H*w;x<H*w+w;x++)if(!A[x])for(let d of E)if(v[x+d]>=0)e=x;
-if(e<0)return"";
-k[e]=0;
-U(B,1);let wk=W(p,e,A);U(B,0);m+=wk;
-if(b==g+""){p=e;continue}
-let SB=[[b,e,""]],K=new Set();
-let fd=-1;
-for(let hd=0;fd<0&&hd<SB.length;hd++){
-let[bs,ps,ms]=SB[hd];
-U(bs,1);let v2=V(ps,k);
-for(let b2=0;b2<bs.length&&fd<0;b2++){let bb=bs[b2];
-for(let j2=0;j2<4;j2++){let d=E[j2],t=bb+d;
-if(v2[bb-d]<0|k[t]|o[t])continue;
-o[bb]=0;o[t]=1;
-let nx=bs.slice();nx[b2]=t;nx.sort(c);
-V(bb,k);let y2=Y+","+nx;
-o[t]=0;o[bb]=1;
-if(K.has(y2))continue;
-let w2=W(ps,bb-d,k);
-if(w2==null)continue;
-K.add(y2);SB.push([nx,bb,ms+w2+"UDLR"[j2]]);
-if(nx==g+""){fd=SB.length-1;break}
-}}
-U(bs,0);
+let H=(p/w)|0,m="",pd=-1;
+for(let s=0;s<2;s++)for(let k=0;k*7+1<w;k++){
+let c0=1+7*k,r0=s?H+1:H-7,r1=s?H+7:H-1;
+const f=x=>{let y=(x/w)|0;return y>=r0&&y<=r1&&x%w>=c0&&x%w<=c0+5};
+let b=B.filter(f);if(!b.length)continue;
+let g=G.filter(f),R=B.filter(x=>!b.includes(x)),dc=-1;
+for(let x=c0;x<=c0+5;x++)if(j[(s?H+1:H-1)*w+x]!="#")dc=x;
+let D={},u=0,y=0,V2={},fd=0;
+D[y++]=[p,b,""];
+while(u<y&&!fd){
+let q=D[u++],[pp,bb,mm]=q,kk=pp+","+bb;
+if(V2[kk])continue;V2[kk]=1;
+if(bb==g+""){fd=q;break}
+for(let j2=0;j2<4;j2++){let d=E[j2],np=pp+d;
+if(j[np]=="#"||bb.includes(np)||R.includes(np)||((np/w|0)==H-1||(np/w|0)==H+1)&&np%w!=dc&&np%w!=pd)continue;
+D[--u]=[np,bb,mm+"udlr"[j2]];
 }
-if(fd<0)return"";
-m+=SB[fd][2];p=SB[fd][1];
-for(let i in b)B[B.indexOf(b[i])]=SB[fd][0][i];
-B.sort(c);
+for(let b2=0;b2<bb.length;b2++){let b1=bb[b2];
+for(let j2=0;j2<4;j2++){let d=E[j2];
+if(pp!=b1-d)continue;let t=b1+d;
+if(j[t]=="#"||bb.includes(t)||R.includes(t)||(t/w|0)==H)continue;
+let nx=bb.slice();nx[b2]=t;nx.sort(c);
+D[y++]=[b1,nx,mm+"UDLR"[j2]];
+}}
+}
+if(!fd)return"";
+m+=fd[2];p=fd[0];
+for(let i in b)B[B.indexOf(b[i])]=fd[1][i];
+B.sort(c);pd=dc;
 }
 return m;
 };
