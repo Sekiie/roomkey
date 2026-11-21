@@ -18,12 +18,11 @@ if(e<0)return"";k[e]=0;
 U(B,1);let wk=W(p,e,A);U(B,0);m+=wk;
 if(b+""==g+""){p=e;continue}
 let SB=[[b,e,""]],K=new Map(),KY=(l,a)=>l+","+a;
-U(b,1);V(e,k);U(b,0);
-K.set(KY(Y,b),0);
 let fd=-1;
 for(let hd=0;fd<0&&hd<SB.length;hd++){
 let s=SB[hd],bs=s[0];
 U(bs,1);let v2=V(s[1],k);
+if(hd==0)K.set(KY(Y,bs),0);
 for(let b2=0;b2<bs.length&&fd<0;b2++){let bb=bs[b2];
 for(let j2=0;j2<4;j2++){let d=E[j2],t=bb+d;
 if(v2[bb-d]<0||k[t]||o[t])continue;
