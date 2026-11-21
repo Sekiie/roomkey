@@ -18,7 +18,7 @@ if(j[np]=="#")continue;
 if(bb.includes(np)){
 v=np+d;
 if(j[v]=="#"||bb.includes(v)||R.includes(v)||(v/w|0)==H)continue;
-let nx=bb.map(x=>x==np?v:x).sort(c);
+let nx=bb.map(x=>x-np?x:v).sort(c);
 D[y++]=[np,nx,mm+"UDLR"[j2]];
 }else{
 if(R.includes(np)||Math.abs((np/w|0)-H)==1&&np%w!=dc&&np%w!=pd)continue;
