@@ -24,8 +24,7 @@ D[--u]=[np,bb,mm+"udlr"[j2]];
 }}
 }
 if(bb!=g)break;
-m+=mm;p=pp;
-b.map((x,i)=>B[B.indexOf(x)]=bb[i]),pd=dc;
+m+=mm,p=pp,b.map((x,i)=>B[B.indexOf(x)]=bb[i]),pd=dc;
 }
 F.mkdirSync(O+"/"+id,{recursive:!0});
 F.writeFileSync(O+"/"+id+"/solution.txt",m);
