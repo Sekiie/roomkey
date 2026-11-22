@@ -15,11 +15,11 @@ for(j2=4;j2--;){d=E[j2],np=pp+d;
 if(j[np]=="#")continue;
 if(bb.includes(np)){
 v=np+d;
-if(j[v]=="#"||bb.includes(v)||R.has(v)||(v/w|0)==H)continue;
+if(j[v]=="#"|bb.includes(v)|R.has(v)|(v/w|0)==H)continue;
 nx=bb.map(x=>x-np?x:v).sort(c);
 D[y++]=[np,nx,mm+"UDLR"[j2]];
 }else{
-if(R.has(np)||((np/w|0)-H)**2==1&&np%w!=dc&&np%w!=pd)continue;
+if(R.has(np)|((np/w|0)-H)**2==1&np%w!=dc&np%w!=pd)continue;
 D[--u]=[np,bb,mm+"udlr"[j2]];
 }}
 }
